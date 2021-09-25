@@ -16,6 +16,7 @@ for (i in seq_along(urls)) {
     as.integer()
 
   url <- read_html(urls[i])
+
   nhl <- url %>%
     rvest::html_table() %>%
     .[[1]]
@@ -47,42 +48,110 @@ for (i in seq_along(urls)) {
 
 }
 
-player_names <- nhl_all %>%
-  dplyr::mutate_at(vars(num, pts), ~as.numeric(.)) %>%
-  dplyr::arrange(desc(num), desc(pts)) %>%
-  dplyr::filter(pts > 149) %>%
-  .[1:100, ] %>%
-  dplyr::pull(player) %>%
-  paste0(., collapse = "|")
+# readr::write_csv(nhl_all, "data/nhl_all.csv")
+
+# urls_specific_players
+#
+# player_names <- nhl_all %>%
+#   dplyr::mutate_at(vars(num, pts), ~as.numeric(.)) %>%
+#   dplyr::arrange(desc(num), desc(pts)) %>%
+#   dplyr::filter(pts > 149) %>%
+#   .[1:100, ] %>%
+#   dplyr::pull(player) %>%
+#   paste0(., collapse = "|")
 
 
+seasons <- 1998:2009
+urls <- paste0("https://www.hockeydb.com/ihdb/draft/nhl", seasons, "e.html")
+urls_specific_players <- c()
+for (i in seq_along(urls)) {
 
+  urls_specific_players <- urls[i] %>%
+    xml2::read_html() %>%
+    rvest::html_elements("a") %>%
+    as.character() %>%
+    .[stringr::str_detect(., pattern = "players")] %>%
+    c(urls_specific_players, .)
+  Sys.sleep(2)
 
-urls_specific_players <- url %>%
-  rvest::html_elements("a") %>%
-  as.character() %>%
-  .[stringr::str_detect(., pattern = "players")] %>%
-  .[stringr::str_detect(., pattern = player_names)]
+}
 
-urls_specific_players[1] %>%
-  stringr::str_remove(".*href=") %>%
-  stringr::str_remove("\\>.*") %>%
-  stringr::str_remove('\\"') %>%
-  paste0("https://www.hockeydb.com", .) %>%
-  str_sub(end = -2) %>%
-  read_html() %>%
-  rvest::html_table()
+cleaned_urls <- urls_specific_players %>%
+  purrr::map_chr(
+    ~ stringr::str_remove(., ".*href=") %>%
+      stringr::str_remove("\\>.*") %>%
+      stringr::str_remove('\\"') %>%
+      paste0("https://www.hockeydb.com", .) %>%
+      str_sub(end = -2)
+  )
 
+# readr::write_csv(data.frame(links = cleaned_urls), "data/cleaned_urls.csv")
+nhl_all <- readr::read_csv("data/nhl_all.csv")
+cleaned_links <- readr::read_csv("data/cleaned_urls.csv")$links
 
+p_table_all <- dplyr::tibble()
+for (i in 115:length(cleaned_links)) {
+  player_page <- cleaned_links[i] %>%
+    xml2::read_html()
 
+  position <- player_page %>%
+    rvest::html_node(".v1") %>%
+    rvest::html_elements("div") %>%
+    as.character() %>%
+    stringr::str_remove("--.*") %>%
+    stringr::str_remove_all("div") %>%
+    stringr::str_remove_all("<.*>") %>%
+    stringr::str_remove_all("\n") %>%
+    stringi::stri_trim_both()
 
+  if(position != "Goalie") {
 
+    p_table <- player_page %>%
+      rvest::html_table() %>%
+      .[[1]]
+    col_names_player <- p_table %>%
+      .[1, ] %>%
+      purrr::pmap(~c(...)) %>%
+      .[[1]] %>%
+      unname() %>%
+      {c(.[1:9], paste0(.[10:14], "_playoffs"))}
+    colnames(p_table) <- col_names_player
+    p_table <- p_table %>%
+      .[2:(nrow(.)-1), ] %>%
+      dplyr::mutate(`+/-` = ifelse(`+/-` == "", "--", `+/-`))
 
+  } else {
 
+    p_table <- player_page %>%
+      rvest::html_table() %>%
+      .[[1]]
+    col_names_player <- p_table %>%
+      .[1, ] %>%
+      purrr::pmap(~c(...)) %>%
+      .[[1]] %>%
+      unname() %>%
+      {c(.[1:16], paste0(.[17:19], "_playoffs"))}
+    colnames(p_table) <- col_names_player
+    p_table <- p_table %>%
+      .[2:(nrow(.)-1), ]
 
+  }
 
+  player_name <- player_page %>%
+    rvest::html_elements("h1") %>%
+    as.character() %>%
+    stringr::str_extract(">.*<") %>%
+    stringr::str_sub(start = 2, end = -2)
+  p_table_all <- p_table_all %>%
+    dplyr::bind_rows(
+      p_table %>%
+        dplyr::mutate(player_name = player_name)
+    )
 
+  print(i)
+  Sys.sleep(runif(n = 1, 3, 10))
 
+}
 
 
 
