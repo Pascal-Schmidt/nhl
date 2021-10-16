@@ -60,7 +60,7 @@ for (i in seq_along(urls)) {
 #   dplyr::pull(player) %>%
 #   paste0(., collapse = "|")
 
-
+nhl_all <- read_csv("nhl/data/nhl_all.csv")
 seasons <- 1998:2009
 urls <- paste0("https://www.hockeydb.com/ihdb/draft/nhl", seasons, "e.html")
 urls_specific_players <- c()
@@ -86,23 +86,19 @@ cleaned_urls <- urls_specific_players %>%
   )
 
 # readr::write_csv(data.frame(links = cleaned_urls), "data/cleaned_urls.csv")
-nhl_all <- readr::read_csv("data/nhl_all.csv")
-cleaned_links <- readr::read_csv("data/cleaned_urls.csv")$links
+cleaned_links <- readr::read_csv("nhl/data/cleaned_urls.csv")$links
+
 
 p_table_all <- dplyr::tibble()
-for (i in 115:length(cleaned_links)) {
-  player_page <- cleaned_links[i] %>%
+for (i in 1691:length(cleaned_links)) {
+  player_page <- "https://www.hockeydb.com/ihdb/stats/pdisplay.php?pid=49108" %>%
     xml2::read_html()
 
   position <- player_page %>%
     rvest::html_node(".v1") %>%
     rvest::html_elements("div") %>%
     as.character() %>%
-    stringr::str_remove("--.*") %>%
-    stringr::str_remove_all("div") %>%
-    stringr::str_remove_all("<.*>") %>%
-    stringr::str_remove_all("\n") %>%
-    stringi::stri_trim_both()
+    stringr::str_extract("(Goalie|Forward|Defense|Left Wing|Right Wing|Center|Wing| ||)")
 
   if(position != "Goalie") {
 
