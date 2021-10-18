@@ -91,7 +91,7 @@ cleaned_links <- readr::read_csv("nhl/data/cleaned_urls.csv")$links
 
 p_table_all <- dplyr::tibble()
 for (i in 1691:length(cleaned_links)) {
-  player_page <- "https://www.hockeydb.com/ihdb/stats/pdisplay.php?pid=49108" %>%
+  player_page <- cleaned_links[i] %>%
     xml2::read_html()
 
   position <- player_page %>%

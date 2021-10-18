@@ -1,0 +1,69 @@
+Season,Team,Lge,GP,G,A,Pts,PIM,+/-,GP_playoffs,G_playoffs,A_playoffs,Pts_playoffs,PIM_playoffs,player_name
+1996-97,Rimouski Oceanic,QMJHL,64,42,60,102,36,--,4,4,3,7,2,Vincent Lecavalier
+1997-98,Rimouski Oceanic,QMJHL,58,44,71,115,117,--,18,15,26,41,46,Vincent Lecavalier
+1998-99,Tampa Bay Lightning,NHL,82,13,15,28,23,-19,--,--,--,--,--,Vincent Lecavalier
+1999-00,Tampa Bay Lightning,NHL,80,25,42,67,43,-25,--,--,--,--,--,Vincent Lecavalier
+2000-01,Tampa Bay Lightning,NHL,68,23,28,51,66,-26,--,--,--,--,--,Vincent Lecavalier
+2001-02,Tampa Bay Lightning,NHL,76,20,17,37,61,-18,--,--,--,--,--,Vincent Lecavalier
+2002-03,Tampa Bay Lightning,NHL,80,33,45,78,39,0,11,3,3,6,22,Vincent Lecavalier
+2003-04,Tampa Bay Lightning,NHL,81,32,34,66,52,23,23,9,7,16,25,Vincent Lecavalier
+2004-05,Kazan Ak-Bars,Russia,30,7,8,15,78,--,4,1,0,1,6,Vincent Lecavalier
+2005-06,Tampa Bay Lightning,NHL,80,35,40,75,90,0,5,1,3,4,7,Vincent Lecavalier
+2006-07,Tampa Bay Lightning,NHL,82,52,56,108,44,2,6,5,2,7,10,Vincent Lecavalier
+2007-08,Tampa Bay Lightning,NHL,81,40,52,92,89,-17,--,--,--,--,--,Vincent Lecavalier
+2008-09,Tampa Bay Lightning,NHL,77,29,38,67,54,-9,--,--,--,--,--,Vincent Lecavalier
+2009-10,Tampa Bay Lightning,NHL,82,24,46,70,63,-16,--,--,--,--,--,Vincent Lecavalier
+2010-11,Tampa Bay Lightning,NHL,65,25,29,54,43,-5,18,6,13,19,16,Vincent Lecavalier
+2011-12,Tampa Bay Lightning,NHL,64,22,27,49,50,-2,--,--,--,--,--,Vincent Lecavalier
+2012-13,Tampa Bay Lightning,NHL,39,10,22,32,29,-5,--,--,--,--,--,Vincent Lecavalier
+2013-14,Philadelphia Flyers,NHL,69,20,17,37,44,-16,7,1,1,2,2,Vincent Lecavalier
+2014-15,Philadelphia Flyers,NHL,57,8,12,20,36,-7,--,--,--,--,--,Vincent Lecavalier
+2015-16,Philadelphia Flyers,NHL,7,0,1,1,2,-1,--,--,--,--,--,Vincent Lecavalier
+2015-16,Los Angeles Kings,NHL,42,10,7,17,20,1,5,1,1,2,2,Vincent Lecavalier
+1996-97,Compuware Ambassadors,"NAHL",44,21,41,62,58,--,,,,,,David Legwand
+1997-98,Plymouth Whalers,OHL,59,54,51,105,56,--,15,8,12,20,24,David Legwand
+1998-99,Plymouth Whalers,OHL,55,31,49,80,65,32,11,3,8,11,8,David Legwand
+1998-99,Nashville Predators,NHL,1,0,0,0,0,0,--,--,--,--,--,David Legwand
+1999-00,Nashville Predators,NHL,71,13,15,28,30,-6,--,--,--,--,--,David Legwand
+2000-01,Nashville Predators,NHL,81,13,28,41,38,1,--,--,--,--,--,David Legwand
+2001-02,Nashville Predators,NHL,63,11,19,30,54,1,--,--,--,--,--,David Legwand
+2002-03,Nashville Predators,NHL,64,17,31,48,34,-2,--,--,--,--,--,David Legwand
+2003-04,Nashville Predators,NHL,82,18,29,47,46,9,6,1,0,1,8,David Legwand
+2004-05,Basel EHC,Swiss-B,3,6,2,8,2,--,,,,,,David Legwand
+2005-06,Nashville Predators,NHL,44,7,19,26,34,3,5,0,1,1,8,David Legwand
+2005-06,Milwaukee Admirals,AHL,3,0,0,0,0,-1,--,--,--,--,--,David Legwand
+2006-07,Nashville Predators,NHL,78,27,36,63,44,23,5,0,3,3,2,David Legwand
+2007-08,Nashville Predators,NHL,65,15,29,44,38,-4,3,1,0,1,2,David Legwand
+2008-09,Nashville Predators,NHL,73,20,22,42,32,-3,--,--,--,--,--,David Legwand
+2009-10,Nashville Predators,NHL,82,11,27,38,24,-5,6,2,5,7,8,David Legwand
+2010-11,Nashville Predators,NHL,64,17,24,41,24,13,12,6,3,9,8,David Legwand
+2011-12,Nashville Predators,NHL,78,19,34,53,26,3,10,3,3,6,10,David Legwand
+2012-13,Nashville Predators,NHL,48,12,13,25,20,-6,--,--,--,--,--,David Legwand
+2013-14,Nashville Predators,NHL,62,10,30,40,30,-8,--,--,--,--,--,David Legwand
+2013-14,Detroit Red Wings,NHL,21,4,7,11,31,-9,5,0,0,0,0,David Legwand
+2014-15,Ottawa Senators,NHL,80,9,18,27,32,1,3,0,0,0,0,David Legwand
+2015-16,Buffalo Sabres,NHL,79,5,9,14,14,-4,--,--,--,--,--,David Legwand
+1995-96,Regina Pats,WHL,3,0,0,0,0,--,--,--,--,--,--,Brad Stuart
+1996-97,Regina Pats,WHL,57,7,36,43,58,--,5,0,4,4,14,Brad Stuart
+1997-98,Regina Pats,WHL,72,20,45,65,82,--,9,3,4,7,10,Brad Stuart
+1998-99,Calgary Hitmen,WHL,30,11,22,33,26,22,21,8,15,23,59,Brad Stuart
+1998-99,Regina Pats,WHL,29,10,19,29,43,-7,--,--,--,--,--,Brad Stuart
+1999-00,San Jose Sharks,NHL,82,10,26,36,32,3,12,1,0,1,6,Brad Stuart
+2000-01,San Jose Sharks,NHL,77,5,18,23,56,10,5,1,0,1,0,Brad Stuart
+2001-02,San Jose Sharks,NHL,82,6,23,29,39,13,12,0,3,3,8,Brad Stuart
+2002-03,San Jose Sharks,NHL,36,4,10,14,46,-6,--,--,--,--,--,Brad Stuart
+2003-04,San Jose Sharks,NHL,77,9,30,39,34,9,17,1,5,6,13,Brad Stuart
+2005-06,San Jose Sharks,NHL,23,2,10,12,14,-2,--,--,--,--,--,Brad Stuart
+2005-06,Boston Bruins,NHL,55,10,21,31,38,-6,--,--,--,--,--,Brad Stuart
+2006-07,Boston Bruins,NHL,48,7,10,17,26,-22,--,--,--,--,--,Brad Stuart
+2006-07,Calgary Flames,NHL,27,0,5,5,18,12,6,0,1,1,6,Brad Stuart
+2007-08,Los Angeles Kings,NHL,63,5,16,21,67,-16,--,--,--,--,--,Brad Stuart
+2007-08,Detroit Red Wings,NHL,9,1,1,2,2,6,21,1,6,7,14,Brad Stuart
+2008-09,Detroit Red Wings,NHL,67,2,13,15,26,-3,23,3,6,9,12,Brad Stuart
+2009-10,Detroit Red Wings,NHL,82,4,16,20,22,-12,12,2,4,6,8,Brad Stuart
+2010-11,Detroit Red Wings,NHL,67,3,17,20,40,4,11,0,2,2,8,Brad Stuart
+2011-12,Detroit Red Wings,NHL,81,6,15,21,29,16,5,0,1,1,0,Brad Stuart
+2012-13,San Jose Sharks,NHL,48,0,6,6,25,4,11,1,2,3,2,Brad Stuart
+2013-14,San Jose Sharks,NHL,61,3,8,11,35,4,7,0,0,0,0,Brad Stuart
+2014-15,Colorado Avalanche,NHL,65,3,10,13,16,-4,--,--,--,--,--,Brad Stuart
+2015-16,Colorado Avalanche,NHL,6,0,0,0,0,-2,--,--,--,--,--,Brad Stuart
