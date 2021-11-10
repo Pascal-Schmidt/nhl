@@ -86,11 +86,14 @@ cleaned_urls <- urls_specific_players %>%
   )
 
 # readr::write_csv(data.frame(links = cleaned_urls), "data/cleaned_urls.csv")
-cleaned_links <- readr::read_csv("nhl/data/cleaned_urls.csv")$links
+cleaned_links <- readr::read_csv("data/cleaned_urls.csv")$links
 
 
+#dont run it because it will delete all progress
 p_table_all <- dplyr::tibble()
-for (i in 1691:length(cleaned_links)) {
+
+
+for (i in 1011:length(cleaned_links)) {
   player_page <- cleaned_links[i] %>%
     xml2::read_html()
 
@@ -98,7 +101,7 @@ for (i in 1691:length(cleaned_links)) {
     rvest::html_node(".v1") %>%
     rvest::html_elements("div") %>%
     as.character() %>%
-    stringr::str_extract("(Goalie|Forward|Defense|Left Wing|Right Wing|Center|Wing| ||)")
+    stringr::str_extract("(Goalie|Forward|Defense|Left Wing|Right Wing|Center|Wing)")
 
   if(position != "Goalie") {
 
@@ -141,14 +144,18 @@ for (i in 1691:length(cleaned_links)) {
   p_table_all <- p_table_all %>%
     dplyr::bind_rows(
       p_table %>%
-        dplyr::mutate(player_name = player_name)
+        dplyr::mutate(player_name = player_name, 
+                      position = position)
     )
 
   print(i)
   Sys.sleep(runif(n = 1, 3, 10))
+  readr::write_csv(p_table_all,"data/individual_players_7.csv")
 
 }
 
+p_table_all = read_csv("data/individual_players.csv") %>% 
+  dplyr::mutate_all(as.character)
 
 
 
