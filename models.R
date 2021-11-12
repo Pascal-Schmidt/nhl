@@ -131,5 +131,25 @@ lm(pts ~., data = rsample::training(splits)) %>%
 ggplot(rsample::training(splits), aes(x = log((pts + 1)))) +
   geom_density()
 
+library(MASS)
+bc <- MASS::boxcox((pts + 0.1) ~., data = rsample::training(splits))
+(lambda <- bc$x[which.max(bc$y)])
+lm_bc <- lm((((pts+0.1)^lambda-1)/lambda) ~., data = rsample::training(splits))
+plot(lm_bc)
 
 
+lm_bc <- lm(pts ~., data = rsample::training(splits) %>%
+              dplyr::filter(pts != 0))
+plot(lm_bc)
+
+
+
+bc <- MASS::boxcox(pts ~., data = rsample::training(splits) %>%
+                     dplyr::filter(pts != 0))
+(lambda <- bc$x[which.max(bc$y)])
+lm_bc <- lm((((pts)^lambda-1)/lambda) ~., data = rsample::training(splits) %>%
+              dplyr::filter(pts != 0))
+plot(lm_bc)
+lm((((pts)^lambda-1)/lambda) ~., data = rsample::training(splits) %>%
+     dplyr::filter(pts != 0)) %>%
+  summary()
